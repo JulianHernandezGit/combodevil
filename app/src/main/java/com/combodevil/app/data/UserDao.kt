@@ -1,3 +1,5 @@
+package com.combodevil.app.data
+
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
@@ -8,18 +10,21 @@ import com.combodevil.app.data.model.User
 
 @Dao
 interface UserDao {
-	@Insert
-	fun insert(user: User)
+    @Insert
+    fun insert(user: User)
 
-	@Update
-	fun update(user: User)
+    @Update
+    fun update(user: User)
 
-	@Delete
-	fun delete(user: User)
+    @Delete
+    fun delete(user: User)
 
-	@Query("SELECT * FROM users")
-	fun getAllUsers(): LiveData<List<User>>
 
-	@Query("SELECT * FROM users WHERE email = :email")
-	fun getUserByEmail(email: String): LiveData<User>
+    fun getUserById(id: Int): LiveData<User>
+
+    @Query("SELECT * FROM users")
+    fun getAllUsers(): LiveData<List<User>>
+
+    @Query("SELECT * FROM users WHERE email = :email")
+    fun getUserByEmail(email: String): LiveData<User>
 }

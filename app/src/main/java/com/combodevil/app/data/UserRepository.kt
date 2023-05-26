@@ -1,6 +1,6 @@
 package com.combodevil.app.data
+
 import androidx.lifecycle.LiveData
-import com.combodevil.app.data.UserDao
 import com.combodevil.app.data.model.User
 
 class UserRepository(private val userDao: UserDao) {
